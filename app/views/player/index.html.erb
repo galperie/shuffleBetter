@@ -1,7 +1,7 @@
 <h3>Search for Playlist</h3>
 
 <%= form_tag('/search', method: 'get') do %>
-    <%= label_tag(:q, 'Search for:') %>
-    <%= text_field_tag(:q) %>
+    <%= label_tag(:playlist_search, 'Search for:') %>
+    <%= text_field_tag(:playlist_search) %>
     <%= submit_tag('Search') %>
 <% end %>

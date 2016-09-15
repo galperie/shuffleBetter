@@ -7,30 +7,34 @@ class PlayerController < ApplicationController
   end
 
   def search
-    get_results
+    get_search_results(params[:playlist_search])
     render 'player/results'
   end
 
-  def get_results
+  def get_search_results(playlist_search)
     RSpotify.authenticate('f6acf8947aa84d2b8266e571f344333d', '0a3da0d97956457cbc1e522667d89c14')
 
-    playlists = RSpotify::Playlist.search('Top Hits')
+    playlists = RSpotify::Playlist.search(playlist_search)
 
     playlists.each do | playlist |
       matches_search = playlist.name.include? 'Todays Top Hits'
       if matches_search
-        tracks = playlist.tracks
-        list_of_track_uris = shuffle(get_uris(tracks))
-
-        playlist_url = 'https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:'
-
-        list_of_track_uris.each do |trackUri|
-          playlist_url += trackUri + ','
-        end
-
-        @url = playlist_url
+        get_playlist_url(playlist)
       end
     end
+  end
+
+  def get_playlist_url(playlist)
+    tracks = playlist.tracks
+    list_of_track_uris = shuffle(get_uris(tracks))
+
+    playlist_url = 'https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:'
+
+    list_of_track_uris.each do |trackUri|
+      playlist_url += trackUri + ','
+    end
+
+    @url = playlist_url
   end
 
   def get_uris(list_of_tracks)
