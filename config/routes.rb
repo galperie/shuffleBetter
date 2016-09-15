@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get 'search', to: 'player#search'
 
+  get 'play', to: 'player#play'
+
 end

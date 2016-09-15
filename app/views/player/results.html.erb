@@ -2,6 +2,11 @@
 
 <h3>Results:</h3>
 
+<%= form_tag('/play', method: 'get') do %>
+    <%= label_tag(:q, 'Play Playlist:') %>
+    <%= submit_tag('Play') %>
+<% end %>
+
 <ul id = "songs">
   <% @songs.each do |song| %>
       <li><%= song %></li>
