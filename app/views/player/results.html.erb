@@ -2,6 +2,15 @@
 
 <h3>Results:</h3>
 
+<%= form_tag('/play', method: 'get') do %>
+    <% @playlist_options.each do |playlist| %>
+        <%= radio_button_tag :requested_playlist, playlist.uri %>
+        <%= label :requested_playlist, playlist.name %><br/>
+    <% end %>
+    <br/>
+    <%= submit_tag('Play') %>
+<% end %>
+
 <div>
   <div>
     <iframe src="<%= @url %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>

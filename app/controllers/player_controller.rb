@@ -16,12 +16,23 @@ class PlayerController < ApplicationController
 
     playlists = RSpotify::Playlist.search(playlist_search)
 
+    @playlist_options = playlists
     playlists.each do | playlist |
-      matches_search = playlist.name.include? 'Todays Top Hits'
-      if matches_search
-        get_playlist_url(playlist)
-      end
+
+      # matches_search = playlist.name.include? 'Todays Top Hits'
+      # if matches_search
+      #   get_playlist_url(playlist)
+      # end
     end
+  end
+
+
+
+
+
+  def play
+    puts 'hi'
+    render 'player/index'
   end
 
   def get_playlist_url(playlist)
