@@ -2,6 +2,6 @@
 
 <%= form_tag('/search', method: 'get') do %>
     <%= label_tag(:playlist_search, 'Search for:') %>
-    <%= text_field_tag(:playlist_search) %>
+    <%= text_field_tag :playlist_search, nil, :required => true %>
     <%= submit_tag('Search') %>
 <% end %>
