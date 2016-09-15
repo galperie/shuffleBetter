@@ -2,14 +2,11 @@
 
 <h3>Results:</h3>
 
-<%= form_tag('/play', method: 'get') do %>
-    <%= label_tag(:q, 'Play Playlist:') %>
-    <%= submit_tag('Play') %>
-<% end %>
+<div>
+  <div>
+    <iframe src="<%= @url %>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+  </div>
+</div>
 
-<ul id = "songs">
-  <% @songs.each do |song| %>
-      <li><%= song %></li>
-  <% end %>
-</ul>
 
+<iframe src="https://embed.spotify.com/?uri=spotify:trackset:PREFEREDTITLE:3dUMuxNadGxCE3qXuhCwqa,3oerY2Hzgr1nIjQpDtMk4d" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
