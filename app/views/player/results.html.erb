@@ -1,0 +1,10 @@
+<button><%= link_to 'Back', '/player' %></button>
+
+<h3>Results:</h3>
+
+<ul id = "songs">
+  <% @songs.each do |song| %>
+      <li><%= song %></li>
+  <% end %>
+</ul>
+

@@ -1,15 +1,7 @@
-<!--<p>Please log in to access your playlist</p>-->
-<!--<%= link_to 'Sign in with Spotify', '/auth/spotify' %>-->
-
 <h3>Search for Playlist</h3>
-<form>
-  <input type="text">
-  <button type="submit">Search</button>
-</form>
 
-<h3>Results:</h3>
-<ul id = "songs">
-  <% @songs.each do |song| %>
-      <li><%= song %></li>
-  <% end %>
-</ul>
+<%= form_tag('/search', method: 'get') do %>
+    <%= label_tag(:q, 'Search for:') %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag('Search') %>
+<% end %>
