@@ -13,7 +13,17 @@ class PlayerController < ApplicationController
 
   def get_search_results(playlist_search)
     RSpotify.authenticate('f6acf8947aa84d2b8266e571f344333d', '0a3da0d97956457cbc1e522667d89c14')
-    @playlist_options = RSpotify::Playlist.search(playlist_search)
+    search_results = RSpotify::Playlist.search(playlist_search)
+    @playlist_options = []
+
+    search_results.each do | playlist |
+      if playlist.uri.exclude? '%'
+        @playlist_options.push(playlist)
+      end
+    end
+
+    @playlist_featured_options = RSpotify::Playlist.browse_featured(name:playlist_search)
+
   end
 
 
