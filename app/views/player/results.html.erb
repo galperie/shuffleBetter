@@ -2,11 +2,14 @@
 
 <h3>Results:</h3>
 
-<%= form_tag('/play', method: 'get') do %>
-    <% @playlist_options.each do |playlist| %>
-        <%= radio_button_tag :requested_playlist, playlist.uri %>
-        <%= label :requested_playlist, playlist.name%><br/>
-    <% end %>
-    <br/>
-    <%= submit_tag('Play') %>
-<% end %>
+<div class="container-fluid">
+  <%= form_tag('/play', method: 'get') do %>
+      <div class="radio">
+        <% @playlist_options.each do |playlist| %>
+            <%= radio_button_tag :requested_playlist, playlist.uri %>
+            <%= label :requested_playlist, playlist.name %>
+        <% end %>
+      </div>
+      <%= submit_tag('Play') %>
+  <% end %>
+</div>
