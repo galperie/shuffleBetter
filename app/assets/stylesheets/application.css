@@ -17,3 +17,8 @@
 html {
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
+
+footer {
+    position:absolute;
+    bottom:0;
+}
