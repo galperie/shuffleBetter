@@ -1,7 +1,7 @@
 <h3>Search for Playlist</h3>
 
-<%= form_tag('/search', method: 'get') do %>
+<%= form_tag('/search', method: 'get', class: 'form-inline') do %>
     <%= label_tag(:playlist_search, 'Search for:') %>
-    <%= text_field_tag :playlist_search, nil, :required => true %>
-    <%= submit_tag('Search') %>
+    <%= text_field_tag :playlist_search, nil, :required => true, :class => 'form-control' %>
+    <%= submit_tag('Search', :class=>'btn btn-default')%>
 <% end %>

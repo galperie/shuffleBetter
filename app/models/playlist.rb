@@ -3,5 +3,4 @@ class Playlist
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-
 end
